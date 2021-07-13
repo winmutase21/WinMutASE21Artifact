@@ -1,0 +1,8 @@
+**/*
+!setup.sh
+!.gitignore
+!run.sh
+!config/
+!config/*
+!patch/
+!patch/*
