@@ -12,24 +12,25 @@ setup() {
 	PROJECTNAME=${3}
 	DIRNAME=${4}
 	echo "Setting up ${PROJECTNAME}"
-	if [ ! -d ${PROJECTNAME} ]; then
-		if [ ! -f "original/${TARNAME}" ]; then
-			echo "...downloading archive"
-			curl -L ${URL} -o "original/${TARNAME}"
-		fi
-		mkdir ${PROJECTNAME}
-		for ALGO in ${ALGOS[@]}
-		do
+	if [ ! -f "original/${TARNAME}" ]; then
+		echo "...downloading archive"
+		curl -L ${URL} -o "original/${TARNAME}" || (echo "Failed to download ${PROJECTNAME}"; exit -1)
+	fi
+	for ALGO in ${ALGOS[@]}; do
+		if [ ! -d ${PROJECTNAME}/${ALGO} ]; then
+			if [ ! -d ${PROJECTNAME} ]; then
+				mkdir ${PROJECTNAME}
+			fi
 			echo "...unpacking archive"
-			tar xvf "original/${TARNAME}" -C "${PROJECTNAME}" > /dev/null
+			tar xvf "original/${TARNAME}" -C "${PROJECTNAME}" > /dev/null || (echo "Failed to unpack the archive for ${PROJECTNAME}"; exit -1)
 			if [ -f "patch/${PROJECTNAME}.patch" ]; then
 				pushd "${PROJECTNAME}/${DIRNAME}" > /dev/null
 				patch -p1 < "../../patch/${PROJECTNAME}.patch" #> /dev/null
 				popd > /dev/null
 			fi
 			mv "${PROJECTNAME}/${DIRNAME}" "${PROJECTNAME}/${ALGO}"
-		done
-	fi
+		fi
+	done
 	echo "...copying config file"
 	cp "config/${PROJECTNAME}.sh" "${PROJECTNAME}/config.sh"
 }
