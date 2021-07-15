@@ -13,7 +13,7 @@ and runtime.
 For the experiments, you need to:
 - install curl for downloading the subjects,
 - install python 3.7+ for executing the analysis script,
-- refer to each project's official website to install the dependencies of the subject programs
+- refer to each project's official website to install the dependencies of the subject programs. You need yasm to build ffmpeg.
 
 #### Build from source
 We hardcoded the path `${PROJECT_ROOT}/cmake-bulid-release` in our evaluation script. If you don't want to install the
