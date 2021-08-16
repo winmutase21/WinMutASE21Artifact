@@ -1,5 +1,5 @@
 **/*
-!setup.sh
+!*.sh
 !.gitignore
 !run.sh
 !config/
