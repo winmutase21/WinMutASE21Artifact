@@ -12,7 +12,7 @@ runwithdirection() {
 }
 
 group1=""
-for project in lua pcre2 binutils coreutils ffmpeg gmp grep libsodium libpng lz4; do
+for project in $*; do
 #for project in lua; do
     for method in WinMut AccMut validate timing; do
         echo -e $(date | awk '{print $4}') "\t[info]\tstarted building ${project}/${method}"
