@@ -6,7 +6,7 @@ diff -rNu WA-no/Makefile WA/Makefile
  
  $(PLATS) clean:
 -	cd src && $(MAKE) $@
-+	cd src && $(MAKE) $@ MYCFLAGS="${CFLAGS}" MYLIBS="-lLLVMWinMutRuntimeV3"
++	cd src && $(MAKE) $@ MYCFLAGS="${CFLAGS}" MYLIBS="-lLLVMWinMutRuntime"
  
  test:	dummy
  	src/lua -v
