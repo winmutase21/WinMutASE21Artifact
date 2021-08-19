@@ -4,45 +4,8 @@ Artifact for ASE21 submission: Faster Mutation Analysis with Fewer Processes and
 
 ### Install
 
-#### Environmental requirements
-
-The artifact is tested on Ubuntu 18.04 LTS with glibc 2.27. It contains assembly code and only works
-on x86-64 platform. You need cmake 3.13.0+ and a C++17 compatible compiler to build the WinMut clang compiler
-and runtime.
-
-For the experiments, you need to:
-- install curl for downloading the subjects,
-- install python 3.7+ for executing the analysis script,
-- refer to each project's official website to install the dependencies of the subject programs. You need yasm to build ffmpeg.
-
-#### Build from source
-We hardcoded the path `${PROJECT_ROOT}/cmake-bulid-release` in our evaluation script. If you don't want to install the
-library elsewhere, you can just run
-```shell
-mkdir cmake-build-release
-cd cmake-build-release
-cmake .. -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=True -DLLVM_ENABLE_CXX1Z=True
-make
-```
-
-If you want to install the compiler and the library somewhere, please run
-```shell
-mkdir build
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX:PATH=<<<where you want to install the artifact>>> \
- -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=True -DLLVM_ENABLE_CXX1Z=True
-make && make install
-```
-
-#### Test the build
-To test if you built WinMut successfully, you can run the script `test.sh` at `experiments/test-installation`. It would print
-`Success` if WinMut works.
-
-The following script tests the installation at `${PROJECT_ROOT}/cmake-build-release`. If you installed WinMut elsewhere, you should set the environment variable `WINMUT_BASE_DIR` for `test.sh`.
-```shell
-cd experiments/test-installation/
-./test.sh
-```
+You can build WinMut from source or use pre-built docker images.
+Please refer to [REQUIREMENTS.md](REQUIREMENTS.md) and [INSTALL.md](INSTALL.md) for the installation.
 
 ### Run the compiler
 The built clang compiler accepts the following command line arguments:
