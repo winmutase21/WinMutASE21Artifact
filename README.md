@@ -95,19 +95,19 @@ Examples:
 
 If you want to run pcre2 with WinMut and restrict the max cases to 10, you should run
 ```shell
-./run.sh pcre2 build WinMut
+./run.sh pcre2 build WinMut # this is not required if you executed buildall.sh for pcre2
 ./run.sh pcre2 run WinMut 10
 ```
 
 If you want to run gmp with only the WinMut runtime and restrict the max cases to 10, you should run
 ```shell
-./run.sh gmp build validate
+./run.sh gmp build validate # this is not required if you executed buildall.sh for gmp
 ./run.sh gmp run validate 10
 ```
 
 If you want to run libsodium, only record the time and restrict the max running time to 2s, you should run
 ```shell
-./run.sh libsodium build timing
+./run.sh libsodium build timing # this is not required if you executed buildall.sh for libsodium
 ./run.sh libsodium run timing 2
 ```
 
