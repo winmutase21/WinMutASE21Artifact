@@ -4,7 +4,7 @@
 
 Note that building WinMut requires a lot of time (maybe *hours*), and the experiments need a lot of computation resources.
 For reference, our experiment reproducing VMWare image has 16GB of memory, 4 Intel-I7 cores and 60GB of disk space, which is capable of reproduction.
-The [docker image](#docker image) requires at least 20GB of free disk space.
+The docker image requires at least 20GB of free disk space.
 
 ## Software
 
