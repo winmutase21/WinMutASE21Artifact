@@ -166,3 +166,6 @@ If you want to collect the statistics of pcre2 project, you should run the follo
 ../analysis/read_program_statistics.sh pcre2/WinMut
 ```
 
+# License
+WinMut is under is under the Apache License v2.0, with the [license file](LICENSE) attached.
+

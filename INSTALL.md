@@ -66,3 +66,16 @@ We did not include ffmpeg in the docker image because building it requires too m
 it's hard to remove the intermediate files.
 
 `WINMUT_BASE_DIR` are already set in these images.
+
+### Usage of the docker image
+```shell
+docker pull lsrcz/winmut:ns1.0.3
+docker run -it lsrcz/winmut:ns1.0.3
+cd experiments/new-subjects/
+./run.sh pcre2 run WinMut 10
+```
+
+### Warning
+
+For some unknown reasons (maybe our docker environment setting errors), *libsodium* may randomly failed on serveral tests in the first execution, but it can pass all the test in the second execution.
+
